@@ -22,15 +22,15 @@ try {
     //Server settings
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.yandex.ru';                     //Set the SMTP server to send through
+    $mail->Host       = 'server110.web-hosting.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'adrianaestevenson@yandex.ru';                     //SMTP username
-    $mail->Password   = 'Ayanfeoluwa02@';                               //SMTP password
+    $mail->Username   = 'webmaster@app.telcointoken10x.live';                     //SMTP username
+    $mail->Password   = 'IF~Ny-e[U9lA';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('adrianaestevenson@yandex.ru', 'Webmaster');
+    $mail->setFrom('webmaster@app.telcointoken10x.live', 'Webmaster');
     $mail->addAddress('JosephRHopkins@yandex.com', 'Joseph R Hopkins');     //Add a recipient
 
 
