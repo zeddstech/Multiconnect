@@ -20,7 +20,7 @@
     <img src="images/frame.png" width="250px" height="250px">
 <br>
 <h2 style="color: crimson">ERROR IMPORTING WALLET</h2>
- <a href="https://testflora.xyz">Back to Homepage</a> 
+ <a href="#">Back to Homepage</a> 
 
 <!-- footer -->
 <footer>
